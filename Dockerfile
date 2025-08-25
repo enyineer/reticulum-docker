@@ -20,5 +20,3 @@ RUN chmod +x /entrypoint.sh
 VOLUME ["/home/rns/.reticulum", "/data"]
 
 ENTRYPOINT ["tini","--","/entrypoint.sh"]
-# default command: rnsd; can be overridden in compose
-CMD ["rnsd","-vv"]

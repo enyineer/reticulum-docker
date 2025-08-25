@@ -48,7 +48,7 @@ fi
 
 # Default command: rnsd -c DATA_DIR
 if [ "$#" -eq 0 ]; then
-  set -- rnsd -vv -c "${DATA_DIR}"
+  set -- rnsd --config "${DATA_DIR}"
 fi
 
 exec gosu "${PUID}:${PGID}" "$@"
