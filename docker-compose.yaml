@@ -30,15 +30,11 @@ services:
     network_mode: host
     restart: unless-stopped
     environment:
-      # Optional: map to your host user IDs; omit if you don't care
-      # PUID: 1000
-      # PGID: 1000
-      # Choose where Reticulum stores config/keys
-      DATA_DIR: /home/rns/.reticulum
-      # If you use I2P SAM:
-      # I2P_SAM_ADDRESS: "127.0.0.1:7656"
+      PUID: 10001
+      PGID: 10001
+      DATA_DIR: /data
     volumes:
-      - ./reticulum:/home/rns/.reticulum
+      - ./reticulum:/data
     devices:
       []
       # Add ttyUSB devices here, eg. if you've connected an rnode module to your device
