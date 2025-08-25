@@ -34,11 +34,11 @@ services:
       # PUID: 1000
       # PGID: 1000
       # Choose where Reticulum stores config/keys
-      DATA_DIR: /data
+      DATA_DIR: /home/rns/.reticulum
       # If you use I2P SAM:
       # I2P_SAM_ADDRESS: "127.0.0.1:7656"
     volumes:
-      - ./reticulum:/data
+      - ./reticulum:/home/rns/.reticulum
     devices:
       []
       # Add ttyUSB devices here, eg. if you've connected an rnode module to your device
