@@ -40,4 +40,6 @@ services:
     volumes:
       - ./reticulum:/data
     devices:
-      - /dev/serial/by-id/your-rnode-here:/dev/ttyUSB0
+      []
+      # Add ttyUSB devices here, eg. if you've connected an rnode module to your device
+      # - /dev/serial/by-id/your-rnode-here:/dev/ttyUSB0
