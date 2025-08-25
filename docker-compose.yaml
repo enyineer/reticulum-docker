@@ -26,16 +26,18 @@ services:
 
   rnsd:
     build: .
-    network_mode: host # recommended for AutoInterface/LAN discovery
-    depends_on:
-      i2pd:
-        condition: service_healthy
-    environment:
-      I2P_SAM_ADDRESS: "127.0.0.1:7656" # reaches published host port
-    volumes:
-      - ./reticulum:/home/rns/.reticulum
-    devices:
-      []
-      # If you add a LoRa device or something else, mount it
-      # - /dev/serial/by-id/…:/dev/ttyUSB0
+    # Or: image: yourname/reticulum:latest
+    network_mode: host
     restart: unless-stopped
+    environment:
+      # Optional: map to your host user IDs; omit if you don't care
+      PUID: 1000
+      PGID: 1000
+      # Choose where Reticulum stores config/keys
+      DATA_DIR: /data
+      # If you use I2P SAM:
+      # I2P_SAM_ADDRESS: "127.0.0.1:7656"
+    volumes:
+      - ./reticulum:/data
+    devices:
+      - /dev/serial/by-id/your-rnode-here:/dev/ttyUSB0
